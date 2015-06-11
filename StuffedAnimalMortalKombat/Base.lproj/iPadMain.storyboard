@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <scenes>
+        <!--Game View Controller-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="StuffedAnimalMortalKombat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="maK-i9-Uhn"/>
+                        <viewControllerLayoutGuide type="bottom" id="khH-OB-KpY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="528" y="380"/>
+        </scene>
+        <!--Player Stats-->
+        <scene sceneID="Oa7-yT-DXr">
+            <objects>
+                <viewController id="s2G-Dg-rby" customClass="PlayerStats" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="enP-ip-d58"/>
+                        <viewControllerLayoutGuide type="bottom" id="nMg-dW-nq0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vXk-3U-USR">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lMr-15-VoW" customClass="HealthBars" customModule="StuffedAnimalMortalKombat" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="15" width="200" height="10"/>
+                                <color key="backgroundColor" red="0.61122668267287772" green="0.60875907021156817" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FAj-0s-OSo" customClass="HealthBars" customModule="StuffedAnimalMortalKombat" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="10"/>
+                                <color key="backgroundColor" red="1" green="0.41509226970000002" blue="0.22765794540000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8ko-4d-1QO" customClass="LifeCount" customModule="StuffedAnimalMortalKombat" customModuleProvider="target">
+                                <rect key="frame" x="140" y="30" width="60" height="20"/>
+                                <color key="backgroundColor" red="0.11408967002029169" green="1" blue="0.48739254787285347" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Vi-W3-5Sz" customClass="KillCount" customModule="StuffedAnimalMortalKombat" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55" width="200" height="245"/>
+                                <color key="backgroundColor" red="1" green="0.42553594883061097" blue="0.33278683068193193" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sick Duck" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCs-5M-6W2">
+                                <rect key="frame" x="0.0" y="30" width="140" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="200" height="300"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ji-i1-ewk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1177" y="380"/>
+        </scene>
+    </scenes>
+</document>
