@@ -15,6 +15,10 @@
 		5B5AA8E61B2A20F200F1C40A /* KillCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AA8E51B2A20F200F1C40A /* KillCount.swift */; };
 		5B5AA8E81B2A210200F1C40A /* LifeCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AA8E71B2A210200F1C40A /* LifeCount.swift */; };
 		5BC65FEE1B2873B400D2B7A4 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC65FED1B2873B400D2B7A4 /* Avatar.swift */; };
+		5BD70AB91B2B12AE002B4A93 /* PlayerStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD70AB81B2B12AE002B4A93 /* PlayerStats.swift */; };
+		5BD70ABF1B2B1CAC002B4A93 /* mensch-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BD70ABC1B2B1CA3002B4A93 /* mensch-bold.ttf */; };
+		5BD70AC01B2B1CAE002B4A93 /* mensch-thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BD70ABD1B2B1CA3002B4A93 /* mensch-thin.ttf */; };
+		5BD70AC11B2B1CB2002B4A93 /* mensch.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BD70ABE1B2B1CA3002B4A93 /* mensch.ttf */; };
 		A9D60C221B2729BF003D7DFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D60C211B2729BF003D7DFB /* AppDelegate.swift */; };
 		A9D60C241B2729BF003D7DFB /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A9D60C231B2729BF003D7DFB /* GameScene.sks */; };
 		A9D60C261B2729BF003D7DFB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D60C251B2729BF003D7DFB /* GameScene.swift */; };
@@ -47,6 +51,10 @@
 		5B5AA8E51B2A20F200F1C40A /* KillCount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KillCount.swift; sourceTree = "<group>"; };
 		5B5AA8E71B2A210200F1C40A /* LifeCount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifeCount.swift; sourceTree = "<group>"; };
 		5BC65FED1B2873B400D2B7A4 /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Avatar.swift; path = ../Avatar.swift; sourceTree = "<group>"; };
+		5BD70AB81B2B12AE002B4A93 /* PlayerStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerStats.swift; sourceTree = "<group>"; };
+		5BD70ABC1B2B1CA3002B4A93 /* mensch-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mensch-bold.ttf"; sourceTree = "<group>"; };
+		5BD70ABD1B2B1CA3002B4A93 /* mensch-thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mensch-thin.ttf"; sourceTree = "<group>"; };
+		5BD70ABE1B2B1CA3002B4A93 /* mensch.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mensch.ttf; sourceTree = "<group>"; };
 		A9D60C1C1B2729BF003D7DFB /* StuffedAnimalMortalKombat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StuffedAnimalMortalKombat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D60C201B2729BF003D7DFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9D60C211B2729BF003D7DFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +97,7 @@
 				5B5AA8E31B2A20C200F1C40A /* HealthBars.swift */,
 				5B5AA8E51B2A20F200F1C40A /* KillCount.swift */,
 				5B5AA8E71B2A210200F1C40A /* LifeCount.swift */,
+				5BD70AB81B2B12AE002B4A93 /* PlayerStats.swift */,
 			);
 			name = Stats;
 			sourceTree = "<group>";
@@ -102,6 +111,16 @@
 				5B5AA8DC1B29D14700F1C40A /* PawButton.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		5BD70ABB1B2B1C9C002B4A93 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5BD70ABD1B2B1CA3002B4A93 /* mensch-thin.ttf */,
+				5BD70ABC1B2B1CA3002B4A93 /* mensch-bold.ttf */,
+				5BD70ABE1B2B1CA3002B4A93 /* mensch.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		A9D60C131B2729BF003D7DFB = {
@@ -145,6 +164,7 @@
 				A9D60C2E1B2729BF003D7DFB /* LaunchScreen.xib */,
 				A9D60C201B2729BF003D7DFB /* Info.plist */,
 				5B5AA8DE1B29EC4000F1C40A /* Functions.swift */,
+				5BD70ABB1B2B1C9C002B4A93 /* Fonts */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -258,7 +278,10 @@
 				A9D60C301B2729BF003D7DFB /* LaunchScreen.xib in Resources */,
 				A9D60C2D1B2729BF003D7DFB /* Images.xcassets in Resources */,
 				A9D60C471B272C43003D7DFB /* iPhoneMain.storyboard in Resources */,
+				5BD70ABF1B2B1CAC002B4A93 /* mensch-bold.ttf in Resources */,
+				5BD70AC11B2B1CB2002B4A93 /* mensch.ttf in Resources */,
 				A9D60C241B2729BF003D7DFB /* GameScene.sks in Resources */,
+				5BD70AC01B2B1CAE002B4A93 /* mensch-thin.ttf in Resources */,
 				A9D60C2B1B2729BF003D7DFB /* iPadMain.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +308,7 @@
 				A9ECB8CA1B273B7E003B0998 /* ControllerViewController.swift in Sources */,
 				5B5AA8E21B2A208700F1C40A /* OverallView.swift in Sources */,
 				A9D60C261B2729BF003D7DFB /* GameScene.swift in Sources */,
+				5BD70AB91B2B12AE002B4A93 /* PlayerStats.swift in Sources */,
 				5B5AA8E61B2A20F200F1C40A /* KillCount.swift in Sources */,
 				A9D60C281B2729BF003D7DFB /* GameViewController.swift in Sources */,
 				A9ECB8CC1B273C68003B0998 /* Connector.swift in Sources */,

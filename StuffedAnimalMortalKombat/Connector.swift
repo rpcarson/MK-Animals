@@ -13,7 +13,7 @@ private let serviceType = "SAMK"
 private let _singleton = Connector()
 
 class Connector: NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDelegate, MCNearbyServiceBrowserDelegate {
-   
+    
     class func sharedConnector() -> Connector { return _singleton }
     
     var browser: MCNearbyServiceBrowser? // iPad
@@ -23,12 +23,22 @@ class Connector: NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDelegate,
     
     var myPeerID: MCPeerID?
     
-    var myInfo: [String:AnyObject] = [:]
+    var playersInfo: [String:AnyObject] = [:]
+    
+    var worldID: MCPeerID?
+    
+    var myInfo: [String:AnyObject] = [:
+       
+//        "color":UIColor(red:0.52, green:0.83, blue:0.97, alpha:1)
+        
+    
+    ]
     
     var gameBoard: GameViewController?
     
     var controller: ControllerViewController?
     
+    var gameScene: GameScene?
     
     func startBrowsing() { // iPad
         
@@ -41,12 +51,12 @@ class Connector: NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDelegate,
         browser?.delegate = self
         
         browser?.startBrowsingForPeers()
-
+        
     }
     
     func startAdvertising() { // iPhone
         
-        myPeerID = MCPeerID(displayName: "RedLeader")
+        myPeerID = MCPeerID(displayName: "Purity")
         
         session = MCSession(peer: myPeerID)
         session?.delegate = self
@@ -64,6 +74,9 @@ class Connector: NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDelegate,
         
         println("found " + peerID.displayName)
         println("found info \(info)")
+        
+        
+        playersInfo[peerID.displayName] = info 
         
         //inviting the peer
         
@@ -84,6 +97,7 @@ class Connector: NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDelegate,
         
         println("invitation from " + peerID.displayName)
         
+        worldID = peerID
         
         // accepting invite
         invitationHandler(true,session)
@@ -98,6 +112,20 @@ class Connector: NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDelegate,
     
     func session(session: MCSession!, didReceiveData data: NSData!, fromPeer peerID: MCPeerID!) {
         
+        decideActionWithData(data, andPeerID: peerID)
+        
+        
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     }
     
     func session(session: MCSession!, didReceiveStream stream: NSInputStream!, withName streamName: String!, fromPeer peerID: MCPeerID!) {
@@ -109,14 +137,75 @@ class Connector: NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDelegate,
     }
     
     func session(session: MCSession!, peer peerID: MCPeerID!, didChangeState state: MCSessionState) {
-
+        
         let stateArray = [
             "Not Connected",
             "Connecting",
             "Connected"
         ]
         
-        println("\(stateArray[state.rawValue]) to " + peerID.displayName)
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            
+            
+            switch state {
+                
+            case .NotConnected : // not connected
+                self.gameBoard?.playerLeft(peerID)
+                println("eeeee")
+                
+            case .Connecting : // connecting
+                
+                println("/(stateArray[state.rawValue]) to " + peerID.displayName)
+                
+            case .Connected : // connected
+                
+                self.gameBoard?.playerJoined(peerID)
+                
+                
+            }
+        })
+    }
+
+///////////// MARK: DATA HALDELING
+    
+    func sendDataToWorld(data:NSData) {
+        
+        if let worldID = worldID {
+            
+            session?.sendData(data, toPeers: [worldID], withMode: MCSessionSendDataMode.Reliable, error: nil)
+            
+        }
         
     }
+    
+
+    func decideActionWithData(data: NSData, andPeerID peerID: MCPeerID) {
+        
+        if let info = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: nil) as? [String:AnyObject] {
+            
+            println(info)
+            
+            
+            if let action = info["action"] as? String {
+                
+                if action == "jump" {
+                    
+                    gameScene?.playerJump(peerID.displayName)
+                }
+            }
+            
+            
+        }
+        
+        
+    }
+
+
+
+
+
+
 }
+
+
+

@@ -25,9 +25,60 @@ class GameScene: SKScene /*GameSceneRef*/ {
         
     playerStatsWidth = (view.bounds.width - (statsPadding * (playerCount + 1))) / playerCount
         
+        
+        Connector.sharedConnector().gameScene = self 
+        
+        
+    }
+    func playerJoined(name: String) {
+        
+        var  charNode = PlayerNode(color: UIColor.blackColor(), size: CGSizeMake(40, 40))
+        
+        charNode.name = name
+       
+        charNode.position = CGPointMake(500, 500)
+       
+        charNode.physicsBody = SKPhysicsBody(rectangleOfSize: charNode.size)
+        
+        if let info = Connector.sharedConnector().playersInfo[name] as? [String:AnyObject] {
+            
+            if let color = info["color"] as? UIColor {
+            
+            charNode.color = color
+            
+            }
+            
+        }
+        
+        addChild(charNode)
+    
+    }
+    func playerLeft(name: String) {
+        
+        if let charNode = childNodeWithName(name) {
+        
+       charNode.removeFromParent()
+        }
     }
     
-
+    func playerJump(name: String) {
+        if let charNode = childNodeWithName(name) {
+            
+            charNode.physicsBody?.applyImpulse(CGVectorMake(0.0, 20.0))
+            
+            
+        }
+        
+    }
+    func playerMove(direction: Int) {
+        
+        
+    }
+    func playerStop(name: String){
+        
+        
+    }
+    
     var sunRotation: Double = 0
     
     override func update(currentTime: CFTimeInterval) {
@@ -47,3 +98,12 @@ class GameScene: SKScene /*GameSceneRef*/ {
         }
     }
 }
+
+class PlayerNode: SKSpriteNode {
+    
+//    var name: String!
+    
+    
+    
+}
+

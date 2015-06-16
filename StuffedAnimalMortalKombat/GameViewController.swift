@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import MultipeerConnectivity
 
 extension SKNode {
     class func unarchiveFromFile(file : String) -> SKNode? {
@@ -26,15 +27,19 @@ extension SKNode {
 }
 
 class GameViewController: UIViewController {
-
+    
+    var scene: GameScene?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         Connector.sharedConnector().gameBoard = self
- 
+        
         Connector.sharedConnector().startBrowsing()
-
-        if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
+        
+        scene = GameScene.unarchiveFromFile("GameScene") as? GameScene
+        
+        if let scene = scene {
             // Configure the view.
             let skView = self.view as! SKView
             skView.showsFPS = true
@@ -49,19 +54,95 @@ class GameViewController: UIViewController {
             skView.presentScene(scene)
         }
     }
-
-    func playerJoined() {
+    
+    var playerViews: [PlayerStats] = []
+    
+    
+    
+    
+    func playerJoined(peerID: MCPeerID) {
         
-        // add stats area
-        // add player sprite node
+        if let playerVC = storyboard?.instantiateViewControllerWithIdentifier("playerStats") as? UIViewController {
+            
+            
+            let playerView = playerVC.view as! PlayerStats
+            
+            playerView.PlayerName.text = peerID.displayName
+            
+            playerViews.append(playerView)
+            
+            
+           scene?.playerJoined(peerID.displayName)
+                
+            }
+        
+        layoutPlayerStats()
     }
     
-    func playerLeft() {
-        // remove stats area
-        // update stats layout
-        //remove sprite node (by explosion)
+    func playerLeft(peerID: MCPeerID) {
+        
+        var foundPlayerViewIndex: Int?
+        
+        for (p,playerView) in enumerate(playerViews) {
+            
+            for playerView in playerViews {
+                
+                if let name = playerView.PlayerName.text, peerName = peerID.displayName where name == peerName {
+                    
+                    foundPlayerViewIndex = p
+                    
+                    scene?.playerLeft(name)
+                }
+                
+                
+            }
+            
+        }
+        
+        for playerView in playerViews { playerView.removeFromSuperview() }
+        
+        if let foundPlayerViewIndex = foundPlayerViewIndex {
+            
+            playerViews.removeAtIndex(foundPlayerViewIndex)
+            
+        }
+        
+        layoutPlayerStats()
+            
+        
+        
+        
+       
+    }
+    
+    func layoutPlayerStats() {
+        
+        let maxPlayers: CGFloat = 4
+       
+        let padding: CGFloat = 20
+        
+        let playerStatsWidth = (view.frame.width - (padding * (maxPlayers + 1))) / maxPlayers
+        
+        
+        for (p,playerView) in enumerate(playerViews) {
+            
+           
+            view.addSubview(playerView)
+            
+            
+            let x = (playerStatsWidth + padding) * CGFloat(p) + padding
+            
+            
+            playerView.frame = CGRectMake( x, padding,  playerStatsWidth, 300)
+            
+        }
+        
+        
         
     }
+    
+    
+    
     
     // movement functions
     
@@ -74,7 +155,7 @@ class GameViewController: UIViewController {
     override func shouldAutorotate() -> Bool {
         return true
     }
-
+    
     override func supportedInterfaceOrientations() -> Int {
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
             return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
@@ -82,12 +163,12 @@ class GameViewController: UIViewController {
             return Int(UIInterfaceOrientationMask.All.rawValue)
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
-
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }

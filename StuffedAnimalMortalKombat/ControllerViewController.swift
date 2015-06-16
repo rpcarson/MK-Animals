@@ -24,6 +24,26 @@ class ControllerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func pressedUp(sender: AnyObject) {
+   
+        let info = [ "action":"jump"]
+        
+        
+        if let data = NSJSONSerialization.dataWithJSONObject(info, options: NSJSONWritingOptions.allZeros, error: nil) {
+        
+            Connector.sharedConnector().sendDataToWorld(data)
+   
+        }
+    }
+    @IBAction func pressedRIght(sender: AnyObject) {
+    
+    }
+    @IBAction func pressedLeft(sender: AnyObject) {
+    
+    }
+    
+    
+    
 
     /*
     // MARK: - Navigation

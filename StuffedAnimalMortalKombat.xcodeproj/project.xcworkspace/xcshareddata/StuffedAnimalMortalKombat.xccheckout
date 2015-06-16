@@ -12,22 +12,34 @@
 	<dict>
 		<key>3FDEA64C43A14EFBC333F5A2BF205D477AB6CB50</key>
 		<string>https://github.com/joalbright/StuffedAnimalMortalKombat.git</string>
+		<key>D17F396338A2B49E092AE749D32F6AB14239B50A</key>
+		<string>https://github.com/rpcarson/MK-Animals.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>StuffedAnimalMortalKombat.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3FDEA64C43A14EFBC333F5A2BF205D477AB6CB50</key>
+		<string>../../../StuffedAnimalMortalKombat</string>
+		<key>D17F396338A2B49E092AE749D32F6AB14239B50A</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/joalbright/StuffedAnimalMortalKombat.git</string>
+	<string>https://github.com/rpcarson/MK-Animals.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>3FDEA64C43A14EFBC333F5A2BF205D477AB6CB50</string>
+	<string>D17F396338A2B49E092AE749D32F6AB14239B50A</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D17F396338A2B49E092AE749D32F6AB14239B50A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MK%20Animals</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

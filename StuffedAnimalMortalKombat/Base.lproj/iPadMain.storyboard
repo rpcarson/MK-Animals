@@ -2,7 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="mensch.ttf">
+            <string>MenschRegular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -22,50 +28,135 @@
             </objects>
             <point key="canvasLocation" x="528" y="380"/>
         </scene>
-        <!--Player Stats-->
+        <!--View Controller-->
         <scene sceneID="Oa7-yT-DXr">
             <objects>
-                <viewController id="s2G-Dg-rby" customClass="PlayerStats" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="playerStats" id="s2G-Dg-rby" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="enP-ip-d58"/>
                         <viewControllerLayoutGuide type="bottom" id="nMg-dW-nq0"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vXk-3U-USR">
+                    <view key="view" contentMode="scaleToFill" id="vXk-3U-USR" customClass="PlayerStats" customModule="StuffedAnimalMortalKombat" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lMr-15-VoW" customClass="HealthBars" customModule="StuffedAnimalMortalKombat" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMr-15-VoW" customClass="HealthBars" customModule="StuffedAnimalMortalKombat" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="15" width="200" height="10"/>
-                                <color key="backgroundColor" red="0.61122668267287772" green="0.60875907021156817" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="1cL-Dl-Wjl"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fullColor">
+                                        <color key="value" red="0.61122668270000002" green="0.60875907019999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="points">
+                                        <real key="value" value="75"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FAj-0s-OSo" customClass="HealthBars" customModule="StuffedAnimalMortalKombat" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAj-0s-OSo" customClass="HealthBars" customModule="StuffedAnimalMortalKombat" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="10"/>
-                                <color key="backgroundColor" red="1" green="0.41509226970000002" blue="0.22765794540000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="XNP-0X-Uvc"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="points">
+                                        <real key="value" value="54"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fullColor">
+                                        <color key="value" red="0.11408967" green="1" blue="0.48739254789999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8ko-4d-1QO" customClass="LifeCount" customModule="StuffedAnimalMortalKombat" customModuleProvider="target">
-                                <rect key="frame" x="140" y="30" width="60" height="20"/>
-                                <color key="backgroundColor" red="0.11408967002029169" green="1" blue="0.48739254787285347" alpha="1" colorSpace="calibratedRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ko-4d-1QO" customClass="LifeCount" customModule="StuffedAnimalMortalKombat" customModuleProvider="target">
+                                <rect key="frame" x="130" y="30" width="70" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="IhU-5e-66b"/>
+                                    <constraint firstAttribute="height" constant="20" id="iXq-Di-e35"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.27843001480000001" green="0.27843001480000001" blue="0.27843001480000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Vi-W3-5Sz" customClass="KillCount" customModule="StuffedAnimalMortalKombat" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55" width="200" height="245"/>
-                                <color key="backgroundColor" red="1" green="0.42553594883061097" blue="0.33278683068193193" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sick Duck" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCs-5M-6W2">
-                                <rect key="frame" x="0.0" y="30" width="140" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sick Duck" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCs-5M-6W2">
+                                <rect key="frame" x="0.0" y="30" width="140" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="OIf-Qs-jWf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MenschRegular" family="Mensch" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Vi-W3-5Sz" customClass="KillCount" customModule="StuffedAnimalMortalKombat" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55" width="200" height="245"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="statsKills">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.98824000359999997" green="0.074510000650000005" blue="0.41569000480000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.35686001179999999" green="0.95293998719999995" blue="0.99607998129999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="lMr-15-VoW" firstAttribute="top" secondItem="FAj-0s-OSo" secondAttribute="bottom" constant="5" id="0WH-L3-zN9"/>
+                            <constraint firstItem="FAj-0s-OSo" firstAttribute="top" secondItem="vXk-3U-USR" secondAttribute="top" id="16A-vb-92H"/>
+                            <constraint firstItem="FAj-0s-OSo" firstAttribute="top" secondItem="enP-ip-d58" secondAttribute="bottom" id="4wk-qg-ALT"/>
+                            <constraint firstItem="lMr-15-VoW" firstAttribute="leading" secondItem="vXk-3U-USR" secondAttribute="leading" id="5zV-1x-Xzt"/>
+                            <constraint firstItem="FAj-0s-OSo" firstAttribute="leading" secondItem="vXk-3U-USR" secondAttribute="leading" id="Dc5-Xt-DP1"/>
+                            <constraint firstItem="4Vi-W3-5Sz" firstAttribute="leading" secondItem="vXk-3U-USR" secondAttribute="leading" id="FNO-8B-RYC"/>
+                            <constraint firstAttribute="trailing" secondItem="SCs-5M-6W2" secondAttribute="trailing" constant="60" id="Fsm-9n-uQH"/>
+                            <constraint firstItem="SCs-5M-6W2" firstAttribute="leading" secondItem="vXk-3U-USR" secondAttribute="leading" id="Gxr-Ys-wzA"/>
+                            <constraint firstItem="8ko-4d-1QO" firstAttribute="top" secondItem="lMr-15-VoW" secondAttribute="bottom" constant="5" id="PSK-0I-g47"/>
+                            <constraint firstAttribute="trailing" secondItem="4Vi-W3-5Sz" secondAttribute="trailing" id="W99-ff-ANm"/>
+                            <constraint firstAttribute="bottom" secondItem="4Vi-W3-5Sz" secondAttribute="bottom" id="Wio-8c-1KR"/>
+                            <constraint firstItem="nMg-dW-nq0" firstAttribute="top" secondItem="4Vi-W3-5Sz" secondAttribute="bottom" id="WjQ-7u-CtI"/>
+                            <constraint firstItem="8ko-4d-1QO" firstAttribute="leading" secondItem="vXk-3U-USR" secondAttribute="leading" constant="130" id="X8H-FY-knD"/>
+                            <constraint firstAttribute="trailing" secondItem="FAj-0s-OSo" secondAttribute="trailing" id="ZKT-o7-THs"/>
+                            <constraint firstItem="FAj-0s-OSo" firstAttribute="top" secondItem="enP-ip-d58" secondAttribute="bottom" id="gws-RG-COf"/>
+                            <constraint firstItem="SCs-5M-6W2" firstAttribute="top" secondItem="lMr-15-VoW" secondAttribute="bottom" constant="5" id="iiO-wt-LFf"/>
+                            <constraint firstAttribute="trailing" secondItem="lMr-15-VoW" secondAttribute="trailing" id="ok6-6M-kFj"/>
+                            <constraint firstItem="FAj-0s-OSo" firstAttribute="top" secondItem="vXk-3U-USR" secondAttribute="topMargin" id="p28-7C-AYc"/>
+                            <constraint firstItem="4Vi-W3-5Sz" firstAttribute="top" secondItem="SCs-5M-6W2" secondAttribute="bottom" id="v2o-FS-hDI"/>
+                            <constraint firstAttribute="trailing" secondItem="8ko-4d-1QO" secondAttribute="trailing" id="vzy-kh-3h9"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4wk-qg-ALT"/>
+                                <exclude reference="gws-RG-COf"/>
+                                <exclude reference="p28-7C-AYc"/>
+                                <exclude reference="WjQ-7u-CtI"/>
+                            </mask>
+                        </variation>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="200" height="300"/>
+                    <connections>
+                        <outlet property="EnergyBar" destination="lMr-15-VoW" id="KEJ-UA-LuY"/>
+                        <outlet property="HealthBar" destination="FAj-0s-OSo" id="a0S-o8-o30"/>
+                        <outlet property="PlayerName" destination="SCs-5M-6W2" id="eNw-1z-awE"/>
+                        <outlet property="killsCount" destination="4Vi-W3-5Sz" id="dbS-jb-U2i"/>
+                        <outlet property="livesCount" destination="8ko-4d-1QO" id="e02-dp-EcS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ji-i1-ewk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1177" y="380"/>
+            <point key="canvasLocation" x="960" y="396"/>
         </scene>
     </scenes>
 </document>
